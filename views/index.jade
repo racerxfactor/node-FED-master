@@ -1,0 +1,20 @@
+extends layout
+
+mixin description(label, name, placeholder)
+  div.input-desc
+    label= label
+    input(name=name, placeholder=placeholder)
+
+block content
+  //- h1= title
+  //- p Welcome to #{title}
+  
+  form.awesome-form(action='#', method='POST')
+    //- mixin description('Full Name: ', 'name', 'Roy G. Biv')
+    //- mixin description('Email: ', 'email', 'roy@biv.com')
+
+    each input in inputs
+      mixin description(input.label, input.name, input.placeholder)
+
+    .submit-area
+      button.btn Enter...?
